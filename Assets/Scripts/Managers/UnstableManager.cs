@@ -6,13 +6,20 @@ using UnityEngine.UI;
 
 public class UnstableManager : Singleton<UnstableManager> {
 
-    private static readonly float MUSIC_FADE_IN_TIME = 2f;
-    private static readonly float MUSIC_FADE_OUT_TIME = 1.8f;
+    private static readonly float MUSIC_FADE_IN_TIME = 1.5f;
+    private static readonly float MUSIC_FADE_OUT_TIME = 1.3f;
+
+    // EEEE SSSSS LLLL UUUUUUUUU
+
+    private static readonly float EXTRA_STABLE_THRESHOLD = 0.2f;
+    private static readonly float STABLE_THRESHOLD = 0.45f;
+    private static readonly float LESS_STABLE_THRESHOLD = 0.66f;
+
 
     // Minimum time that must be spent in a given state before transitioning to avoid whiplash
-    private static readonly float MINIMUM_STATE_TIME = 5f;
-    public enum StabilityLevel { Stable, LessStable, Unstable }
-    private static StabilityLevel stabilityLevel = StabilityLevel.Stable;
+    private static readonly float MINIMUM_STATE_TIME = 2f;
+    public enum StabilityLevel { ExtraStable, Stable, LessStable, Unstable }
+    private static StabilityLevel stabilityLevel = StabilityLevel.ExtraStable;
 
     public AudioMixer musicMixer;
     public Image uiMeter;
@@ -25,7 +32,7 @@ public class UnstableManager : Singleton<UnstableManager> {
 
     // Start is called before the first frame update
     void Start() {
-        EnterStabilityLevel(StabilityLevel.Stable);
+        EnterStabilityLevel(stabilityLevel);
     }
 
     // Update is called once per frame
@@ -51,11 +58,16 @@ public class UnstableManager : Singleton<UnstableManager> {
         }
 
         StabilityLevel newStability;
-        if (normalizedUnstableLevel < 0.20f) {
+        if (normalizedUnstableLevel < EXTRA_STABLE_THRESHOLD) {
+            newStability = StabilityLevel.ExtraStable;
+        }
+        else if (normalizedUnstableLevel < STABLE_THRESHOLD) {
             newStability = StabilityLevel.Stable;
-        } else if (normalizedUnstableLevel < 0.70f) {
+        }
+        else if (normalizedUnstableLevel < LESS_STABLE_THRESHOLD) {
             newStability = StabilityLevel.LessStable;
-        } else {
+        }
+        else {
             newStability = StabilityLevel.Unstable;
         }
 
@@ -69,6 +81,9 @@ public class UnstableManager : Singleton<UnstableManager> {
 
     private void ExitStabilityLevel(StabilityLevel stability) {
         switch (stability) {
+            case StabilityLevel.ExtraStable:
+                StartCoroutine(FadeMixerGroup.StartFade(musicMixer, "ExtraStableVolume", MUSIC_FADE_OUT_TIME, 0f));
+                break;
             case StabilityLevel.Stable:
                 StartCoroutine(FadeMixerGroup.StartFade(musicMixer, "StableVolume", MUSIC_FADE_OUT_TIME, 0f));
                 break;
@@ -83,6 +98,9 @@ public class UnstableManager : Singleton<UnstableManager> {
 
     private void EnterStabilityLevel(StabilityLevel stability) {
         switch (stability) {
+            case StabilityLevel.ExtraStable:
+                StartCoroutine(FadeMixerGroup.StartFade(musicMixer, "ExtraStableVolume", MUSIC_FADE_IN_TIME, 1f));
+                break;
             case StabilityLevel.Stable:
                 StartCoroutine(FadeMixerGroup.StartFade(musicMixer, "StableVolume", MUSIC_FADE_IN_TIME, 1f));
                 break;

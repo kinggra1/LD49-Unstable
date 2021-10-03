@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec8dc78cb292cbc43b0877830de928bc, type: 3}
   m_Name: EnemyWizard
   m_EditorClassIdentifier: 
-  characterName: Enemy Wizard
-  characterPortrait: {fileID: 2800000, guid: 57c0bada303f2604eabb87a0ba3e3dac, type: 3}
+  characterName: '[Bad Boi Husband]'
+  characterPortrait: {fileID: 2800000, guid: 8f7233ff66cb93840bc48c8b5e479267, type: 3}
   blips: []
