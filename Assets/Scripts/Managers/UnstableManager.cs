@@ -30,13 +30,18 @@ public class UnstableManager : MonoBehaviour {
     void Update() {
 
         // Unstable-ness is constnatly decreasing by a small amount.
-        Debug.Log(percentageRecoveryPerSecond * Time.deltaTime);
         normalizedUnstableLevel -= percentageRecoveryPerSecond * Time.deltaTime;
+        normalizedUnstableLevel = Mathf.Clamp01(normalizedUnstableLevel);
+
         uiMeter.fillAmount = normalizedUnstableLevel;
     }
 
     public void AddInstability(float percentage) {
         normalizedUnstableLevel += percentage;
-        normalizedUnstableLevel = Mathf.Min(normalizedUnstableLevel, 1f);
+        normalizedUnstableLevel = Mathf.Clamp01(normalizedUnstableLevel);
+    }
+
+    public float UnstableValue() {
+        return normalizedUnstableLevel;
     }
 }
