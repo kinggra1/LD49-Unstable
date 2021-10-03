@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SlimeEnemy : MonoBehaviour, EnemyInterface {
-
+public class FishEnemy : MonoBehaviour, EnemyInterface {
     private static readonly float SPEED = 0.7f;
-    private static readonly int MAX_HEALTH = 1;
-    private static readonly float INSTABILITY = 0.2f;
+    private static readonly int MAX_HEALTH = 5;
+    private static readonly float INSTABILITY = 0.4f;
 
     private int currentHealth = MAX_HEALTH;
 
@@ -42,8 +41,7 @@ public class SlimeEnemy : MonoBehaviour, EnemyInterface {
     private void OnTriggerStay2D(Collider2D collider) {
         // if object collided with is the player, increase their instability
         var player = collider.gameObject.GetComponent<CharacterController>();
-        if (player != null)
-        {
+        if (player != null) {
             player.TakeDamage(INSTABILITY);
         }
     }
