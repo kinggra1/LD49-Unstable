@@ -50,6 +50,7 @@ public class BatEnemy : MonoBehaviour, EnemyInterface {
 
     public void Die() {
         Destroy(this.gameObject);
+        WaveManager.Instance.OnEnemyDeath();
     }
 
     private void OnTriggerStay2D(Collider2D collider) {

@@ -10,7 +10,7 @@ public class GameManager : Singleton<GameManager> {
     private bool paused = false;
 
     void Start() {
-        DialogueSystem.Instance.StartConversation(introConversation);
+        WaveManager.Instance.BeginFirstWave();
     }
 
     // Update is called once per frame
