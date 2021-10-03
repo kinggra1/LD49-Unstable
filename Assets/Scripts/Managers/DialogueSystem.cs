@@ -79,7 +79,7 @@ namespace ETools.Dialogue {
 
 		#region Mono Methods
 
-		void Start() {
+		void Awake() {
 			rootObj.SetActive(false);
 		}
 
@@ -218,7 +218,7 @@ namespace ETools.Dialogue {
 			int i = 1;
 			string textSoFar;
 
-			string speechText = speechNode.text.ToString();
+			string speechText = speechNode.text.EnglishString;
 			MarkupString ms = new MarkupString(speechText);
 			ms.InsertNewLines(dialogueText, dialogueText.GetComponent<RectTransform>().rect.width);
 
@@ -242,7 +242,7 @@ namespace ETools.Dialogue {
 		}
 
 		private void ShowFinishedSpeechText(SpeechNode speechNode) {
-			MarkupString ms = new MarkupString(speechNode.text.ToString());
+			MarkupString ms = new MarkupString(speechNode.text.EnglishString);
 			dialogueText.text = ms.Substring(0, ms.plainString.Length);
 			_printing = false;
 		}
