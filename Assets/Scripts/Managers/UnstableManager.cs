@@ -18,7 +18,7 @@ public class UnstableManager : Singleton<UnstableManager> {
     public Image uiMeter;
 
     [Range(0f, 0.1f)]
-    public float percentageRecoveryPerSecond = 0.08f;
+    public float percentageRecoveryPerSecond = 0.1f;
 
     private float normalizedUnstableLevel = 0f; // [0, 1]
     private float timeInCurrentState = 0f;

@@ -5,17 +5,20 @@ using UnityEngine;
 public class BatEnemy : MonoBehaviour, EnemyInterface {
     private static readonly float SPEED = 1f;
     private static readonly int MAX_HEALTH = 1;
-    private static readonly float INSTABILITY = 0.1f;
+    private static readonly float INSTABILITY = 0.2f;
     private static readonly float SHOOT_TIME = 2f;
 
-    private static int currentHealth = MAX_HEALTH;
-    private static float shootCooldown = 0f;
+    private int currentHealth = MAX_HEALTH;
+    private float shootCooldown = 0f;
+    private float movementRotation = 0f;
 
     public GameObject projectilePrefab;
 
     // Start is called before the first frame update
     void Start() {
-
+        // Each bat has a random offset path that it follows 
+        // so that it isn't moving *directly* towards the player
+        movementRotation = Random.Range(50f, 80f) * Mathf.Sign(Random.Range(-1f, 1f));
     }
 
     // Update is called once per frame
@@ -27,7 +30,9 @@ public class BatEnemy : MonoBehaviour, EnemyInterface {
         // move closer to player character
         float step = SPEED * Time.deltaTime; // calculate distance to move
         var playerPosition = CharacterController.Instance.transform.position;
-        this.transform.position = Vector3.MoveTowards(this.transform.position, playerPosition, step);
+        Vector3 directionToplayer = playerPosition - this.transform.position;
+        Vector3 targetDirection = Quaternion.Euler(0f, 0f, movementRotation) * directionToplayer;
+        this.transform.position = Vector3.MoveTowards(this.transform.position, this.transform.position + targetDirection, step);
 
         shootCooldown -= Time.deltaTime;
         if (shootCooldown <= 0) {

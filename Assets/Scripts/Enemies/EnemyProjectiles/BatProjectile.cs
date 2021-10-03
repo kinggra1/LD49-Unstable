@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BatProjectile : MonoBehaviour, EnemyProjectileInterface {
     private static readonly float SPEED = 5f;
-    private static readonly float INSTABILITY = 0.1f;
+    private static readonly float INSTABILITY = 0.2f;
 
     private Vector3 direction;
 
@@ -31,7 +31,6 @@ public class BatProjectile : MonoBehaviour, EnemyProjectileInterface {
         var player = collider.gameObject.GetComponent<CharacterController>();
         if (player != null) {
             player.TakeDamage(INSTABILITY);
-
         }
         Destroy(this.gameObject);
     }
