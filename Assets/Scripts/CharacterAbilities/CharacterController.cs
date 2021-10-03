@@ -48,6 +48,8 @@ public class CharacterController : Singleton<CharacterController> {
         if (currentIFrames > 0) {
             currentIFrames -= Time.deltaTime;
         }
+
+        SetFacingBasedOnMouse();
     }
 
     // Update is called once per frame
@@ -87,6 +89,16 @@ public class CharacterController : Singleton<CharacterController> {
         Vector3 newPosition = transform.position + positionChange * Time.fixedDeltaTime;
 
         rb.MovePosition(newPosition);
+    }
+
+    private void SetFacingBasedOnMouse() {
+        Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        Vector3 localScale = this.transform.localScale;
+        bool leftOfPlayer = mouseWorldPos.x - this.transform.position.x < 0f;
+        localScale.x = Mathf.Abs(localScale.x) * (leftOfPlayer ? -1 : 1);
+
+        this.transform.localScale = localScale;
     }
 
     private void FireProjectile() {

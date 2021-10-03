@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: Level 1
   m_EditorClassIdentifier: Assembly-CSharp::Level
+  introConversation: {fileID: 11400000, guid: cb129cd260f6d9e4c920fd524bd8a1ae, type: 2}
   waves:
   - spawnedEnemies:
     - type: 0
@@ -22,4 +23,3 @@ MonoBehaviour:
   - spawnedEnemies:
     - type: 0
       count: 7
-  introConversation: {fileID: 11400000, guid: cb129cd260f6d9e4c920fd524bd8a1ae, type: 2}
