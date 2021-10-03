@@ -5,6 +5,7 @@ using UnityEngine;
 public class FireballProjectile : MonoBehaviour, ProjectileInterface {
 
     private static readonly float SPEED = 8f;
+    private static readonly int DAMAGE = 1;
 
     private Vector3 direction;
     public void ImpactEnemy() {
@@ -30,6 +31,13 @@ public class FireballProjectile : MonoBehaviour, ProjectileInterface {
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
+        // if object collided with is an enemy, inflict damage on it
+        var impactedEnemy = collision.gameObject.GetComponent<EnemyInterface>();
+        if (impactedEnemy != null)
+        {
+            impactedEnemy.TakeDamage(DAMAGE);
+        }
+
         Destroy(this.gameObject);
     }
 }
