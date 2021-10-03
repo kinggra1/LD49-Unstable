@@ -89,6 +89,7 @@ namespace ETools.Dialogue {
 
 		private void OnEnable() {
 			_currentTextSpeed = defaultTextSpeed;
+			audioSource.volume = 0.1f;
 			if (audioSource == null)
 				audioSource = GetComponent<AudioSource>();
 		}

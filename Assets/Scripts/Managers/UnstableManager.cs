@@ -8,9 +8,9 @@ public class UnstableManager : Singleton<UnstableManager> {
     public Image uiMeter;
 
     [Range(0f, 0.1f)]
-    public float percentageRecoveryPerSecond = 0.05f;
+    public float percentageRecoveryPerSecond = 0.08f;
 
-    private float normalizedUnstableLevel = 0.5f; // [0, 1]
+    private float normalizedUnstableLevel = 0f; // [0, 1]
 
     // Start is called before the first frame update
     void Start() {
