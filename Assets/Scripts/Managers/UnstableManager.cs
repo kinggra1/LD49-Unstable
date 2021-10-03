@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UnstableManager : MonoBehaviour {
-
-    public static UnstableManager Instance;
+public class UnstableManager : Singleton<UnstableManager> {
 
     public Image uiMeter;
 
@@ -13,13 +11,6 @@ public class UnstableManager : MonoBehaviour {
     public float percentageRecoveryPerSecond = 0.05f;
 
     private float normalizedUnstableLevel = 0.5f; // [0, 1]
-
-    private void Awake() {
-        if (Instance) {
-            Destroy(this.gameObject);
-        }
-        Instance = this;
-    }
 
     // Start is called before the first frame update
     void Start() {

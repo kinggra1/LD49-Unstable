@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterController : MonoBehaviour {
+public class CharacterController : Singleton<CharacterController> {
 
     private static readonly float MAX_X_MOVE_SPEED = 3f;
     private static readonly float MAX_Y_MOVE_SPEED = 3f;
     private static readonly float MAX_OVERALL_MOVE_SPEED = 3f;
+
+    private static readonly float MAX_AIM_VARIANCE = 35f; // Degrees to either side of aimed point.
 
     [Range(0, 1)]
     public float maxUnstableInfluence = 0.4f;
@@ -14,6 +16,7 @@ public class CharacterController : MonoBehaviour {
     public GameObject projectilePrefab;
 
     private Rigidbody2D rb;
+    private bool frozen;
 
     // Inputs from Update used in FixedUpdate.
     private float xInput;
@@ -29,6 +32,10 @@ public class CharacterController : MonoBehaviour {
     }
 
     private void Update() {
+        if (frozen) {
+            return;
+        }
+
         xInput = Input.GetAxis("Horizontal");
         yInput = Input.GetAxis("Vertical");
 
@@ -39,8 +46,10 @@ public class CharacterController : MonoBehaviour {
 
     // Update is called once per frame
     void FixedUpdate() {
+        if (frozen) {
+            return;
+        }
 
-        Debug.Log(fireProjectilePressed);
         if (fireProjectilePressed) {
             FireProjectile();
             fireProjectilePressed = false;
@@ -74,10 +83,24 @@ public class CharacterController : MonoBehaviour {
         rb.MovePosition(newPosition);
     }
 
+    public void FreezePlayer() {
+        frozen = true;
+    }
+
+    public void UnfreezePlayer() {
+        frozen = false;
+    }
+
     private void FireProjectile() {
         Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mouseWorldPos.z = 0f;
+
         Vector3 projectileDirection = (mouseWorldPos - this.transform.position).normalized;
+
+        // Augment projectile direction based on Unstable offset
+        float maxAimRotation = UnstableManager.Instance.UnstableValue() * MAX_AIM_VARIANCE;
+        float aimRotation = Random.Range(-maxAimRotation, maxAimRotation);
+        projectileDirection = Quaternion.Euler(0, 0, aimRotation) * projectileDirection;
 
         GameObject projectile = Instantiate(projectilePrefab);
         projectile.transform.position = this.transform.position + projectileDirection.normalized;

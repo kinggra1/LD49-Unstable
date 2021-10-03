@@ -2,15 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour {
-    public static GameManager Instance;
-
-    private void Awake() {
-        if (Instance) {
-            Destroy(this.gameObject);
-        }
-        Instance = this;
-    }
+public class GameManager : Singleton<GameManager> {
 
     void Start()
     {

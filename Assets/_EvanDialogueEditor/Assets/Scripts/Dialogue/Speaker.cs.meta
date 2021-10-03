@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: ec8dc78cb292cbc43b0877830de928bc
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - characterPortrait: {fileID: 2800000, guid: dea7743aa28329242bd00bd134091a70, type: 3}
+  - blip: {fileID: 8300000, guid: 1e655e84d5bd7674083e648029181d92, type: 3}
+  executionOrder: 0
+  icon: {fileID: 2800000, guid: 35b96a7e583700e498698efcb6f8fdd7, type: 3}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

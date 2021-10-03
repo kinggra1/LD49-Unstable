@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec8dc78cb292cbc43b0877830de928bc, type: 3}
+  m_Name: PlayerWizard
+  m_EditorClassIdentifier: 
+  characterName: Player Wizard
+  characterPortrait: {fileID: 2800000, guid: 5bf3755f82f555d43822573105816053, type: 3}
+  blips: []
