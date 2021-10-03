@@ -30,9 +30,9 @@ public class FireballProjectile : MonoBehaviour, ProjectileInterface {
         this.transform.position += direction * SPEED * Time.deltaTime;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision) {
+    private void OnTriggerEnter2D(Collider2D collider) {
         // if object collided with is an enemy, inflict damage on it
-        var impactedEnemy = collision.gameObject.GetComponent<EnemyInterface>();
+        var impactedEnemy = collider.gameObject.GetComponent<EnemyInterface>();
         if (impactedEnemy != null)
         {
             impactedEnemy.TakeDamage(DAMAGE);
