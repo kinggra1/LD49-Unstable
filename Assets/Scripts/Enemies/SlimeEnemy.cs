@@ -9,7 +9,6 @@ public class SlimeEnemy : MonoBehaviour, EnemyInterface {
     private static readonly float INSTABILITY = 0.1f;
 
     private static int currentHealth = MAX_HEALTH;
-    float damageTimer;
 
     // Start is called before the first frame update
     void Start() {
@@ -18,12 +17,6 @@ public class SlimeEnemy : MonoBehaviour, EnemyInterface {
 
     // Update is called once per frame
     void Update() {
-        // decrease time until more damage can be inflicted
-        if (damageTimer > 0)
-        {
-            damageTimer -= Time.deltaTime;
-        }
-
         // move closer to player character
         float step = SPEED * Time.deltaTime; // calculate distance to move
         var playerPosition = CharacterController.Instance.transform.position;
@@ -43,14 +36,10 @@ public class SlimeEnemy : MonoBehaviour, EnemyInterface {
 
     private void OnTriggerStay2D(Collider2D collider) {
         // if object collided with is the player, increase their instability
-        if (damageTimer <= 0)
+        var player = collider.gameObject.GetComponent<CharacterController>();
+        if (player != null)
         {
-            var player = collider.gameObject.GetComponent<CharacterController>();
-            if (player != null)
-            {
-                damageTimer = 1;
-                UnstableManager.Instance.AddInstability(INSTABILITY);
-            }
+            player.TakeDamage(INSTABILITY);
         }
     }
 }

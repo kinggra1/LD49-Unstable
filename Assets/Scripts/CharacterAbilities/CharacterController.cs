@@ -7,6 +7,7 @@ public class CharacterController : Singleton<CharacterController> {
     private static readonly float MAX_X_MOVE_SPEED = 3f;
     private static readonly float MAX_Y_MOVE_SPEED = 3f;
     private static readonly float MAX_OVERALL_MOVE_SPEED = 3f;
+    private static readonly float MAX_IFRAMES = 1f;
 
     private static readonly float MAX_AIM_VARIANCE = 35f; // Degrees to either side of aimed point.
 
@@ -26,6 +27,8 @@ public class CharacterController : Singleton<CharacterController> {
     private float perlinMovementStart = 80000f;
     private float currentWanderAngle = 0f;
 
+    private float currentIFrames = MAX_IFRAMES;
+
     // Start is called before the first frame update
     void Start(){
         rb = GetComponent<Rigidbody2D>();
@@ -41,6 +44,10 @@ public class CharacterController : Singleton<CharacterController> {
 
         if (!fireProjectilePressed) {
             fireProjectilePressed = Input.GetMouseButtonDown(0);
+        }
+
+        if (currentIFrames > 0) {
+            currentIFrames -= Time.deltaTime;
         }
     }
 
@@ -108,5 +115,12 @@ public class CharacterController : Singleton<CharacterController> {
         projectileScript.SetDirection(projectileDirection);
 
         UnstableManager.Instance.AddInstability(0.1f);
+    }
+
+    public void TakeDamage(float instability) {
+        if (currentIFrames <= 0) {
+            currentIFrames = 1;
+            UnstableManager.Instance.AddInstability(instability);
+        }
     }
 }
