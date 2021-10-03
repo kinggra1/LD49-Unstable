@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 16568c72912fcf344bfa7043e6414133, type: 3}
-  m_Name: Speech
+  m_Name: Intro Speech
   m_EditorClassIdentifier: 
   outgoing: {fileID: -8077437651232627928}
   nodeRect:
@@ -31,7 +31,7 @@ MonoBehaviour:
     _values:
     - {fileID: 7459168533134556476}
     - {fileID: -1502521684912041810}
-  guid: 71238820
+  guid: 87131182
   incoming:
   - {fileID: 1021909331223120690}
 --- !u!114 &-8077437651232627928
@@ -65,7 +65,7 @@ MonoBehaviour:
     _values:
     - {fileID: 1582382007702708722}
     - {fileID: -2781778272733501183}
-  guid: 22246271
+  guid: 35222141
   incoming:
   - {fileID: -8352994906476764188}
 --- !u!114 &-4228059949937804741
@@ -291,7 +291,7 @@ MonoBehaviour:
   properties:
     _keys: []
     _values: []
-  guid: 29429212
+  guid: 47849547
   incoming: []
 --- !u!114 &1582382007702708722
 MonoBehaviour:
@@ -426,7 +426,7 @@ MonoBehaviour:
     _values:
     - {fileID: -417760069893582910}
     - {fileID: 6621492669429448702}
-  guid: 96904074
+  guid: 92665795
   incoming:
   - {fileID: 8140213006886673121}
 --- !u!114 &8140213006886673121
@@ -460,6 +460,6 @@ MonoBehaviour:
     _values:
     - {fileID: 746543856399835563}
     - {fileID: -4228059949937804741}
-  guid: 82617290
+  guid: 56944583
   incoming:
   - {fileID: -8077437651232627928}
