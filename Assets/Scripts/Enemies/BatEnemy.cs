@@ -20,6 +20,10 @@ public class BatEnemy : MonoBehaviour, EnemyInterface {
 
     // Update is called once per frame
     void Update() {
+        if (GameManager.Instance.IsPaused()) {
+            return;
+        }
+
         // move closer to player character
         float step = SPEED * Time.deltaTime; // calculate distance to move
         var playerPosition = CharacterController.Instance.transform.position;

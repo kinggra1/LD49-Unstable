@@ -46,7 +46,7 @@ namespace ETools.Dialogue {
 			_conversation = conversation;
 			_currentNode = conversation.firstNode;
 			EnableUI();
-			FreezePlayer();
+			PauseGame();
 			if (playAutomatically)
 				PlayNode();
 		}
@@ -57,7 +57,7 @@ namespace ETools.Dialogue {
 			StopCoroutine(_textRevealCoroutine);
 			_textRevealCoroutine = null;
 			DisableUI();
-			UnFreezePlayer();
+			UnpauseGame();
 		}
 
 		public void OnAdvance(int choice = -1)//(InputAction.CallbackContext context)
@@ -268,12 +268,12 @@ namespace ETools.Dialogue {
 			else return 1;
 		}
 
-		private void FreezePlayer() {
-			CharacterController.Instance.FreezePlayer();
+		private void PauseGame() {
+			GameManager.Instance.Pause();
 		}
 
-		private void UnFreezePlayer() {
-			CharacterController.Instance.UnfreezePlayer();
+		private void UnpauseGame() {
+			GameManager.Instance.Play();
 		}
 
 		#endregion

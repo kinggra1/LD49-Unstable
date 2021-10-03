@@ -17,7 +17,6 @@ public class CharacterController : Singleton<CharacterController> {
     public GameObject projectilePrefab;
 
     private Rigidbody2D rb;
-    private bool frozen;
 
     // Inputs from Update used in FixedUpdate.
     private float xInput;
@@ -35,7 +34,7 @@ public class CharacterController : Singleton<CharacterController> {
     }
 
     private void Update() {
-        if (frozen) {
+        if (GameManager.Instance.IsPaused()) {
             return;
         }
 
@@ -53,7 +52,7 @@ public class CharacterController : Singleton<CharacterController> {
 
     // Update is called once per frame
     void FixedUpdate() {
-        if (frozen) {
+        if (GameManager.Instance.IsPaused()) {
             return;
         }
 
@@ -88,14 +87,6 @@ public class CharacterController : Singleton<CharacterController> {
         Vector3 newPosition = transform.position + positionChange * Time.fixedDeltaTime;
 
         rb.MovePosition(newPosition);
-    }
-
-    public void FreezePlayer() {
-        frozen = true;
-    }
-
-    public void UnfreezePlayer() {
-        frozen = false;
     }
 
     private void FireProjectile() {

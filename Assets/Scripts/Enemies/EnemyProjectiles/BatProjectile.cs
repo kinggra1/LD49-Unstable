@@ -19,6 +19,10 @@ public class BatProjectile : MonoBehaviour, EnemyProjectileInterface {
 
     // Update is called once per frame
     void Update() {
+        if (GameManager.Instance.IsPaused()) {
+            return;
+        }
+
         this.transform.position += direction * SPEED * Time.deltaTime;
     }
 
