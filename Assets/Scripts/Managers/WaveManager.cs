@@ -3,29 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-[CreateAssetMenu(fileName = "Level", menuName = "Wizard/Level", order = 51)]
-public class Level : ScriptableObject {
-
-    [System.Serializable]
-    public class EnemyGroup {
-        public WaveManager.EnemyType type;
-        public int count;
-    }
-
-    [System.Serializable]
-    public class Wave {
-        [SerializeField]
-        public List<EnemyGroup> spawnedEnemies;
-    }
-
-
-    [SerializeField]
-    public Conversation introConversation;
-    [SerializeField]
-    public Wave[] waves;
-}
-
 public class WaveManager : Singleton<WaveManager> {
 
     private static readonly float SPAWN_RADIUS = 7f;
@@ -34,6 +11,7 @@ public class WaveManager : Singleton<WaveManager> {
     public GameObject enemyParentObject;
     public GameObject slimePrefab;
     public GameObject batPrefab;
+    public GameObject fishPrefab;
 
     public List<Level> levels;
 
@@ -114,6 +92,9 @@ public class WaveManager : Singleton<WaveManager> {
                             new Vector3(Mathf.Cos(randomAngle), Mathf.Sin(randomAngle), 0f) * SPAWN_RADIUS;
                         break;
                     case EnemyType.Fish:
+                        GameObject fish = Instantiate(fishPrefab);
+                        fish.transform.position =
+                            new Vector3(Mathf.Cos(randomAngle), Mathf.Sin(randomAngle), 0f) * SPAWN_RADIUS;
                         break;
                 }
             }

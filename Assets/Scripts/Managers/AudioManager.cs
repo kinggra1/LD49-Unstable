@@ -38,7 +38,7 @@ public class AudioManager : Singleton<AudioManager> {
     }
 
     public void PlaySlimeDeathSound() {
-        enemySfxAudioSource.volume = 0.5f; // Duck audio a bit for loud clip (hacky).
+        enemySfxAudioSource.volume = 0.1f; // Duck audio a bit for loud clip (hacky).
         enemySfxAudioSource.pitch = (Random.Range(0.9f, 1.1f));
         enemySfxAudioSource.PlayOneShot(slimeDieSound);
     }

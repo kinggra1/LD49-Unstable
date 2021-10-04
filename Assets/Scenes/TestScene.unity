@@ -539,7 +539,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -2381,12 +2381,14 @@ MonoBehaviour:
     type: 3}
   batPrefab: {fileID: 484814216990073555, guid: 1ca76ed371e69744b99af46fac9526f7,
     type: 3}
+  fishPrefab: {fileID: 168898042332708706, guid: f8917b9b0fa6fde41b61e495d26ac4f5,
+    type: 3}
   levels:
-  - {fileID: 11400000, guid: 3e77a04d9bcf1254080ff1f2339c63ba, type: 2}
-  - {fileID: 11400000, guid: 941959062284050488e13d087c5edd02, type: 2}
-  - {fileID: 11400000, guid: a68143e68579b9e4d90e7ce64a2b9b39, type: 2}
-  - {fileID: 11400000, guid: 5e6bdd92e6533094b913949d53fbd13e, type: 2}
-  - {fileID: 11400000, guid: 63c7e9d42bb1c7b4e982e060a1dc4803, type: 2}
+  - {fileID: 11400000, guid: da2eea647e6f97c4ca4e71b865af6b9e, type: 2}
+  - {fileID: 11400000, guid: 7dc473238e5f9364d93568af9c953402, type: 2}
+  - {fileID: 11400000, guid: d39fb6d87d99a7448a140961a8aef222, type: 2}
+  - {fileID: 11400000, guid: e8df635d96f8b124ea8dddc78354a3a8, type: 2}
+  - {fileID: 11400000, guid: cd92cf987eb4a4d49aa2b407b4c0dc32, type: 2}
 --- !u!114 &1719967878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2400,6 +2402,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireballCastSound: {fileID: 8300000, guid: 7950bca88925ee54f832a977b8943ba3, type: 3}
+  firestormCastSound: {fileID: 0}
   playerHitSound: {fileID: 8300000, guid: 2f29ec76a20c4e54c9394453718b970f, type: 3}
   slimeDieSound: {fileID: 8300000, guid: e8e00fd2b9b87bc40805b360ba340f1a, type: 3}
   batDieSound: {fileID: 8300000, guid: 725deb170f422fd468e029171ffefa49, type: 3}
