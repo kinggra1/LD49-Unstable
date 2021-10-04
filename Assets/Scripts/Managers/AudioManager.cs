@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AudioManager : Singleton<AudioManager> {
     public AudioClip fireballCastSound;
+    public AudioClip firestormCastSound;
     public AudioClip playerHitSound;
     public AudioClip slimeDieSound;
     public AudioClip batDieSound;
@@ -22,6 +23,12 @@ public class AudioManager : Singleton<AudioManager> {
         playerSfxAudioSource.volume = (Random.Range(0.6f, 1f));
         playerSfxAudioSource.pitch = (Random.Range(0.6f, 1.1f));
         playerSfxAudioSource.PlayOneShot(fireballCastSound);
+    }
+
+    public void PlayFirestormCast() {
+        playerSfxAudioSource.volume = 0.7f;
+        playerSfxAudioSource.pitch = (Random.Range(0.6f, 1.1f));
+        playerSfxAudioSource.PlayOneShot(firestormCastSound);
     }
 
     public void PlayPlayerHitSound() {
