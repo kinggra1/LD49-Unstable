@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class WizardEnemy : MonoBehaviour, EnemyInterface {
+
+    private enum AttackState { Waiting, Moving, Cooldown }
+
     private static readonly float SPEED = .8f;
     private static readonly int MAX_HEALTH = 20;
     private static readonly float INSTABILITY = 0.4f;

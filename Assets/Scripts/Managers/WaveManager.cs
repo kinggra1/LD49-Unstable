@@ -46,7 +46,13 @@ public class WaveManager : Singleton<WaveManager> {
 
     // Update is called once per frame
     void Update() {
-        
+        if (GameManager.Instance.IsPaused()) {
+            return;
+        }
+
+        if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0) {
+            TriggerNextWave();
+        }
     }
 
     public void BeginFirstWave() {
@@ -55,12 +61,10 @@ public class WaveManager : Singleton<WaveManager> {
     }
 
     public void OnEnemyDeath() {
-        Debug.Log(GameObject.FindGameObjectsWithTag("Enemy").Length);
-
         // Something about Destroy() timing probably? Need to check that this was the last enemy.
-        if (GameObject.FindGameObjectsWithTag("Enemy").Length == 1) {
-            TriggerNextWave();
-        }
+        //if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0) {
+        //    TriggerNextWave();
+        //}
     }
 
     public void RestartLevel() {

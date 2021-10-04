@@ -1,5 +1,37 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-3602798609401974829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2527139df071504c9ece22d3062da0d, type: 3}
+  m_Name: Speech (43208960)
+  m_EditorClassIdentifier: 
+  nextNode: {fileID: -3262895808003639271}
+  guid: 43208960
+  speaker: {fileID: 11400000, guid: 5d36c17730615be42a06d7baea1a5be4, type: 2}
+  text: {fileID: 11400000, guid: f8e0a35e968f5e84b9b1e553316adc4a, type: 2}
+--- !u!114 &-3262895808003639271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2527139df071504c9ece22d3062da0d, type: 3}
+  m_Name: Speech (75593193)
+  m_EditorClassIdentifier: 
+  nextNode: {fileID: 7693579042890762900}
+  guid: 75593193
+  speaker: {fileID: 11400000, guid: 84d6cc14a313d2d4ebb7d96351fee048, type: 2}
+  text: {fileID: 11400000, guid: 72dc85f832ebbff4a8588c156e6c57f1, type: 2}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13,16 +45,16 @@ MonoBehaviour:
   m_Name: Level2Intro
   m_EditorClassIdentifier: 
   conversationType: 0
-  firstNode: {fileID: 4204729651419902957}
+  firstNode: {fileID: 1837900180379486928}
   speakers:
   - {fileID: 11400000, guid: 84d6cc14a313d2d4ebb7d96351fee048, type: 2}
   - {fileID: 11400000, guid: 5d36c17730615be42a06d7baea1a5be4, type: 2}
   allNodes:
-  - {fileID: 4204729651419902957}
-  - {fileID: 6407125091801337035}
-  - {fileID: 5376573046770467670}
-  - {fileID: 3172525727164812972}
---- !u!114 &3172525727164812972
+  - {fileID: 1837900180379486928}
+  - {fileID: -3602798609401974829}
+  - {fileID: -3262895808003639271}
+  - {fileID: 7693579042890762900}
+--- !u!114 &1837900180379486928
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -32,29 +64,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f2527139df071504c9ece22d3062da0d, type: 3}
-  m_Name: Speech (73642444)
+  m_Name: Speech (80961220)
   m_EditorClassIdentifier: 
-  nextNode: {fileID: 0}
-  guid: 73642444
-  speaker: {fileID: 11400000, guid: 84d6cc14a313d2d4ebb7d96351fee048, type: 2}
-  text: {fileID: 11400000, guid: c8809863d9cd40145a423f9a33937c9e, type: 2}
---- !u!114 &4204729651419902957
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2527139df071504c9ece22d3062da0d, type: 3}
-  m_Name: Speech (30831434)
-  m_EditorClassIdentifier: 
-  nextNode: {fileID: 6407125091801337035}
-  guid: 30831434
+  nextNode: {fileID: -3602798609401974829}
+  guid: 80961220
   speaker: {fileID: 11400000, guid: 84d6cc14a313d2d4ebb7d96351fee048, type: 2}
   text: {fileID: 11400000, guid: e6120e05d7b97b5458d58f35b9591af5, type: 2}
---- !u!114 &5376573046770467670
+--- !u!114 &7693579042890762900
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -64,25 +80,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f2527139df071504c9ece22d3062da0d, type: 3}
-  m_Name: Speech (50857903)
+  m_Name: Speech (26284150)
   m_EditorClassIdentifier: 
-  nextNode: {fileID: 3172525727164812972}
-  guid: 50857903
-  speaker: {fileID: 11400000, guid: 84d6cc14a313d2d4ebb7d96351fee048, type: 2}
-  text: {fileID: 11400000, guid: 72dc85f832ebbff4a8588c156e6c57f1, type: 2}
---- !u!114 &6407125091801337035
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2527139df071504c9ece22d3062da0d, type: 3}
-  m_Name: Speech (19909869)
-  m_EditorClassIdentifier: 
-  nextNode: {fileID: 5376573046770467670}
-  guid: 19909869
+  nextNode: {fileID: 0}
+  guid: 26284150
   speaker: {fileID: 11400000, guid: 5d36c17730615be42a06d7baea1a5be4, type: 2}
-  text: {fileID: 11400000, guid: f8e0a35e968f5e84b9b1e553316adc4a, type: 2}
+  text: {fileID: 11400000, guid: c8809863d9cd40145a423f9a33937c9e, type: 2}
