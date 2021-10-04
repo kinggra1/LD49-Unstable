@@ -48,7 +48,7 @@ public class CharacterController : Singleton<CharacterController> {
         }
 
         if (!firestormPressed) {
-            firestormPressed = Input.GetMouseButton(1);
+            // firestormPressed = Input.GetMouseButton(1);
         }
 
         if (currentIFrames > 0) {

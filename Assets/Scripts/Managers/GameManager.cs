@@ -8,9 +8,11 @@ public class GameManager : Singleton<GameManager> {
 
     public GameObject defeatUI;
     public GameObject victoryUI;
+    public Conversation wrapupConversation;
 
     private bool paused = false;
     private bool gameOver = false;
+    private bool winGame = false;
 
     void Start() {
         defeatUI.SetActive(false);
@@ -38,12 +40,16 @@ public class GameManager : Singleton<GameManager> {
     }
 
     public void WinGame() {
-        gameOver = true;
+        winGame = true;
         Pause();
         foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy")) {
             Destroy(enemy);
         }
-        victoryUI.SetActive(true);
+
+        // This will be handled by the Dialogue system because LAST MINUTE HACKS.
+        // victoryUI.SetActive(true);
+
+        DialogueSystem.Instance.StartConversation(wrapupConversation);
     }
 
     public void GameOver() {
@@ -69,5 +75,9 @@ public class GameManager : Singleton<GameManager> {
 
     public bool IsGameOver() {
         return gameOver;
+    }
+
+    public bool IsWinGame() {
+        return winGame;
     }
 }

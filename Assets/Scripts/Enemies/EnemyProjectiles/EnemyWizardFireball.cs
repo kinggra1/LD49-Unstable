@@ -32,6 +32,12 @@ public class EnemyWizardFireball : MonoBehaviour, EnemyProjectileInterface {
     }
 
     private void OnTriggerEnter2D(Collider2D collider) {
+
+        if (collider.GetComponent<ProjectileInterface>() != null
+            || collider.GetComponent<EnemyProjectileInterface>() != null) {
+            return;
+        }
+
         // if object collided with is player, inflict damage
         var player = collider.gameObject.GetComponent<CharacterController>();
         if (player != null) {

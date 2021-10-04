@@ -10,7 +10,7 @@ public class WizardEnemy : MonoBehaviour, EnemyInterface {
     private static readonly float SPEED = 1.5f;
     private static readonly int MAX_HEALTH = 20;
     private static readonly float INSTABILITY = 0.4f;
-    private static readonly float SPAWN_RADIUS = 4f;
+    private static readonly float SPAWN_RADIUS = 4.5f;
 
     public GameObject enemyFireballPrefab;
 
@@ -62,6 +62,7 @@ public class WizardEnemy : MonoBehaviour, EnemyInterface {
                     break;
                 }
                 break;
+
         }
 
         // move closer to player character
@@ -71,6 +72,7 @@ public class WizardEnemy : MonoBehaviour, EnemyInterface {
         Vector3 targetDirection = Quaternion.Euler(0f, 0f, movementRotation) * directionToplayer;
         this.transform.position = Vector3.MoveTowards(this.transform.position, this.transform.position + targetDirection, step);
 
+        SetFacingBasedOnPlayer();
     }
 
     private void ChangeState(AttackState newState) {
@@ -123,8 +125,24 @@ public class WizardEnemy : MonoBehaviour, EnemyInterface {
         Vector3 newPosition = CharacterController.Instance.transform.position 
             + new Vector3(Mathf.Cos(randomAngle), Mathf.Sin(randomAngle), 0f) * SPAWN_RADIUS;
 
+        GameObject disappearPoof = Instantiate(WaveManager.Instance.magicPoofPrefab);
+        disappearPoof.transform.position = this.transform.position;
+
         this.transform.position = newPosition;
         movementRotation = Random.Range(50f, 80f) * Mathf.Sign(Random.Range(-1f, 1f));
+
+        GameObject appearPoof = Instantiate(WaveManager.Instance.magicPoofPrefab);
+        appearPoof.transform.position = this.transform.position;
+    }
+
+    private void SetFacingBasedOnPlayer() {
+        Vector3 playerPosition = CharacterController.Instance.transform.position;
+
+        Vector3 localScale = this.transform.localScale;
+        bool leftOfPlayer = playerPosition.x - this.transform.position.x > 0f;
+        localScale.x = Mathf.Abs(localScale.x) * (leftOfPlayer ? -1 : 1);
+
+        this.transform.localScale = localScale;
     }
 
     public void TakeDamage(int damageAmount) {
@@ -137,7 +155,7 @@ public class WizardEnemy : MonoBehaviour, EnemyInterface {
 
     public void Die() {
         Destroy(this.gameObject);
-        WaveManager.Instance.OnEnemyDeath();
+        GameManager.Instance.WinGame();
     }
 
     private void OnTriggerStay2D(Collider2D collider) {

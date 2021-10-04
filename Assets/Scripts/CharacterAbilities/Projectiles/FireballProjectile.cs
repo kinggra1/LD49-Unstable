@@ -38,6 +38,12 @@ public class FireballProjectile : MonoBehaviour, ProjectileInterface {
     }
 
     private void OnTriggerEnter2D(Collider2D collider) {
+
+        if (collider.GetComponent<ProjectileInterface>() != null 
+            || collider.GetComponent<EnemyProjectileInterface>() != null) {
+            return;
+        }
+
         // if object collided with is an enemy, inflict damage on it
         var impactedEnemy = collider.gameObject.GetComponent<EnemyInterface>();
         if (impactedEnemy != null)

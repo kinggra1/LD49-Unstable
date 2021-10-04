@@ -273,7 +273,11 @@ namespace ETools.Dialogue {
 		}
 
 		private void UnpauseGame() {
-			GameManager.Instance.Play();
+			if (GameManager.Instance.IsWinGame()) {
+				GameManager.Instance.victoryUI.SetActive(true);
+			} else {
+				GameManager.Instance.Play();
+			}
 		}
 
 		#endregion
