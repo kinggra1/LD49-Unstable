@@ -27,6 +27,9 @@ public class FireballProjectile : MonoBehaviour, ProjectileInterface {
 
     // Update is called once per frame
     void Update() {
+        if (GameManager.Instance.IsGameOver()) {
+            Destroy(gameObject);
+        }
         if (GameManager.Instance.IsPaused()) {
             return;
         }

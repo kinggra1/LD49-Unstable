@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8844115187895961677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2527139df071504c9ece22d3062da0d, type: 3}
+  m_Name: Speech (86643812)
+  m_EditorClassIdentifier: 
+  nextNode: {fileID: 4442830598493269544}
+  guid: 86643812
+  speaker: {fileID: 11400000, guid: 84d6cc14a313d2d4ebb7d96351fee048, type: 2}
+  text: {fileID: 11400000, guid: 1e0954987f13c1a408cf9de89b0f04b4, type: 2}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0570314de9b8fa1439f0f52d0d4a84d5, type: 3}
+  m_Name: Level4Intro
+  m_EditorClassIdentifier: 
+  conversationType: 0
+  firstNode: {fileID: 1694352892726464483}
+  speakers:
+  - {fileID: 11400000, guid: 84d6cc14a313d2d4ebb7d96351fee048, type: 2}
+  - {fileID: 11400000, guid: 5d36c17730615be42a06d7baea1a5be4, type: 2}
+  allNodes:
+  - {fileID: 1694352892726464483}
+  - {fileID: 3863191527129550433}
+  - {fileID: -8844115187895961677}
+  - {fileID: 4442830598493269544}
+--- !u!114 &1694352892726464483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2527139df071504c9ece22d3062da0d, type: 3}
+  m_Name: Speech (85591883)
+  m_EditorClassIdentifier: 
+  nextNode: {fileID: 3863191527129550433}
+  guid: 85591883
+  speaker: {fileID: 11400000, guid: 84d6cc14a313d2d4ebb7d96351fee048, type: 2}
+  text: {fileID: 11400000, guid: a80ad18913b6d2443b4a9aafb927979b, type: 2}
+--- !u!114 &3863191527129550433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2527139df071504c9ece22d3062da0d, type: 3}
+  m_Name: Speech (21889930)
+  m_EditorClassIdentifier: 
+  nextNode: {fileID: -8844115187895961677}
+  guid: 21889930
+  speaker: {fileID: 11400000, guid: 5d36c17730615be42a06d7baea1a5be4, type: 2}
+  text: {fileID: 11400000, guid: e1d5a9a7c978d154486c226837298226, type: 2}
+--- !u!114 &4442830598493269544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2527139df071504c9ece22d3062da0d, type: 3}
+  m_Name: Speech (52155237)
+  m_EditorClassIdentifier: 
+  nextNode: {fileID: 0}
+  guid: 52155237
+  speaker: {fileID: 11400000, guid: 5d36c17730615be42a06d7baea1a5be4, type: 2}
+  text: {fileID: 11400000, guid: a3bfa0c5ec6578a468de8f8c9fd96606, type: 2}

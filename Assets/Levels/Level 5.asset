@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: Level 5
   m_EditorClassIdentifier: Assembly-CSharp::Level
+  introConversation: {fileID: 11400000, guid: e769761ca203d3b4691497a0d360649f, type: 2}
   waves: []

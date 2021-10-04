@@ -15,6 +15,7 @@ public class CharacterController : Singleton<CharacterController> {
     public float maxUnstableInfluence = 0.4f;
 
     public GameObject projectilePrefab;
+    public GameObject firestormPrefab;
 
     private Rigidbody2D rb;
 
@@ -22,6 +23,7 @@ public class CharacterController : Singleton<CharacterController> {
     private float xInput;
     private float yInput;
     private bool fireProjectilePressed;
+    private bool firestormPressed;
 
     private float perlinMovementStart = 80000f;
     private float currentWanderAngle = 0f;
@@ -45,6 +47,10 @@ public class CharacterController : Singleton<CharacterController> {
             fireProjectilePressed = Input.GetMouseButtonDown(0);
         }
 
+        if (!firestormPressed) {
+            firestormPressed = Input.GetMouseButton(1);
+        }
+
         if (currentIFrames > 0) {
             currentIFrames -= Time.deltaTime;
         }
@@ -61,6 +67,11 @@ public class CharacterController : Singleton<CharacterController> {
         if (fireProjectilePressed) {
             FireProjectile();
             fireProjectilePressed = false;
+        }
+
+        if (firestormPressed) {
+            CreateFirestorm();
+            firestormPressed = false;
         }
 
         Vector3 inputPositionChange = 
@@ -118,6 +129,13 @@ public class CharacterController : Singleton<CharacterController> {
         projectileScript.SetDirection(projectileDirection);
 
         UnstableManager.Instance.AddInstability(0.1f);
+    }
+
+    private void CreateFirestorm() {
+        GameObject firestorm = Instantiate(firestormPrefab);
+        firestorm.transform.position = this.transform.position;
+
+        // UnstableManager.Instance.AddInstability(0.33f);
     }
 
     public void TakeDamage(float instability) {

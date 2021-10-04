@@ -1,0 +1,465 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9205607057826010863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e8fb5f7ec6a71946a43b87c7255d214, type: 3}
+  m_Name: Speech.property - Speaker
+  m_EditorClassIdentifier: 
+  outgoing: {fileID: 0}
+  nodeRect:
+    serializedVersion: 2
+    x: 1791.8619
+    y: 274.91144
+    width: 300
+    height: 20
+  isOutput: 0
+  connectionMarkedForDelete: 0
+  propertyName: Speaker
+  value:
+    type: 5
+    stringValue: 
+    floatValue: 0
+    intValue: 0
+    speakerValue: {fileID: 11400000, guid: 5d36c17730615be42a06d7baea1a5be4, type: 2}
+    objectValue: {fileID: 0}
+    gameStringValue: {fileID: 0}
+    boolValue: 0
+    objectValueTypeName: 
+  propertyPosition: {x: 0, y: 0}
+  parent: {fileID: 855126653101382797}
+--- !u!114 &-8470625045324170902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a99395355bee0d7449279f70643ec8d6, type: 3}
+  m_Name: Start
+  m_EditorClassIdentifier: 
+  outgoing: {fileID: 5703680213187074617}
+  nodeRect:
+    serializedVersion: 2
+    x: 510
+    y: 260
+    width: 150
+    height: 30
+  isOutput: 1
+  connectionMarkedForDelete: 0
+  nodeName: Start
+  parentGraph: {fileID: 11400000}
+  tooltip: This is where the dialogue starts.
+  properties:
+    _keys: []
+    _values: []
+  guid: 96438080
+  incoming: []
+--- !u!114 &-7574972006918163804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16568c72912fcf344bfa7043e6414133, type: 3}
+  m_Name: Speech
+  m_EditorClassIdentifier: 
+  outgoing: {fileID: -6171492716649417471}
+  nodeRect:
+    serializedVersion: 2
+    x: 1076.2699
+    y: 244.91147
+    width: 300
+    height: 30
+  isOutput: 1
+  connectionMarkedForDelete: 0
+  nodeName: Speech
+  parentGraph: {fileID: 11400000}
+  tooltip: A line spoken by one of the Speakers.
+  properties:
+    _keys:
+    - Speaker
+    - Text
+    _values:
+    - {fileID: -7155753393130346134}
+    - {fileID: 2194944422651768510}
+  guid: 47312618
+  incoming:
+  - {fileID: 5703680213187074617}
+--- !u!114 &-7155753393130346134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e8fb5f7ec6a71946a43b87c7255d214, type: 3}
+  m_Name: Speech.property - Speaker
+  m_EditorClassIdentifier: 
+  outgoing: {fileID: 0}
+  nodeRect:
+    serializedVersion: 2
+    x: 1076.2699
+    y: 274.91147
+    width: 300
+    height: 20
+  isOutput: 0
+  connectionMarkedForDelete: 0
+  propertyName: Speaker
+  value:
+    type: 5
+    stringValue: 
+    floatValue: 0
+    intValue: 0
+    speakerValue: {fileID: 11400000, guid: 5d36c17730615be42a06d7baea1a5be4, type: 2}
+    objectValue: {fileID: 0}
+    gameStringValue: {fileID: 0}
+    boolValue: 0
+    objectValueTypeName: 
+  propertyPosition: {x: 0, y: 0}
+  parent: {fileID: -7574972006918163804}
+--- !u!114 &-6171492716649417471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16568c72912fcf344bfa7043e6414133, type: 3}
+  m_Name: Speech
+  m_EditorClassIdentifier: 
+  outgoing: {fileID: 855126653101382797}
+  nodeRect:
+    serializedVersion: 2
+    x: 1432.9225
+    y: 244.9114
+    width: 300
+    height: 30
+  isOutput: 1
+  connectionMarkedForDelete: 0
+  nodeName: Speech
+  parentGraph: {fileID: 11400000}
+  tooltip: A line spoken by one of the Speakers.
+  properties:
+    _keys:
+    - Speaker
+    - Text
+    _values:
+    - {fileID: 8768957886783488551}
+    - {fileID: -2538063173966405157}
+  guid: 64304548
+  incoming:
+  - {fileID: -7574972006918163804}
+--- !u!114 &-5640453229272374600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e8fb5f7ec6a71946a43b87c7255d214, type: 3}
+  m_Name: Speech.property - Text
+  m_EditorClassIdentifier: 
+  outgoing: {fileID: 0}
+  nodeRect:
+    serializedVersion: 2
+    x: 722.6657
+    y: 299.48395
+    width: 300
+    height: 50
+  isOutput: 0
+  connectionMarkedForDelete: 0
+  propertyName: Text
+  value:
+    type: 6
+    stringValue: 
+    floatValue: 0
+    intValue: 0
+    speakerValue: {fileID: 0}
+    objectValue: {fileID: 0}
+    gameStringValue: {fileID: 11400000, guid: 9dd386b17f5f6304fa22759c779e9410, type: 2}
+    boolValue: 0
+    objectValueTypeName: 
+  propertyPosition: {x: 0, y: 0}
+  parent: {fileID: 5703680213187074617}
+--- !u!114 &-3646278790746810168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e8fb5f7ec6a71946a43b87c7255d214, type: 3}
+  m_Name: Speech.property - Text
+  m_EditorClassIdentifier: 
+  outgoing: {fileID: 0}
+  nodeRect:
+    serializedVersion: 2
+    x: 1791.8619
+    y: 294.91144
+    width: 300
+    height: 50
+  isOutput: 0
+  connectionMarkedForDelete: 0
+  propertyName: Text
+  value:
+    type: 6
+    stringValue: 
+    floatValue: 0
+    intValue: 0
+    speakerValue: {fileID: 0}
+    objectValue: {fileID: 0}
+    gameStringValue: {fileID: 11400000, guid: b928bdf23ed67df4382afec010e2f83a, type: 2}
+    boolValue: 0
+    objectValueTypeName: 
+  propertyPosition: {x: 0, y: 0}
+  parent: {fileID: 855126653101382797}
+--- !u!114 &-2538063173966405157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e8fb5f7ec6a71946a43b87c7255d214, type: 3}
+  m_Name: Speech.property - Text
+  m_EditorClassIdentifier: 
+  outgoing: {fileID: 0}
+  nodeRect:
+    serializedVersion: 2
+    x: 1432.9225
+    y: 294.9114
+    width: 300
+    height: 50
+  isOutput: 0
+  connectionMarkedForDelete: 0
+  propertyName: Text
+  value:
+    type: 6
+    stringValue: 
+    floatValue: 0
+    intValue: 0
+    speakerValue: {fileID: 0}
+    objectValue: {fileID: 0}
+    gameStringValue: {fileID: 11400000, guid: c09dedd89fba2ce459941db71cb370c9, type: 2}
+    boolValue: 0
+    objectValueTypeName: 
+  propertyPosition: {x: 0, y: 0}
+  parent: {fileID: -6171492716649417471}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7f17d01a407f014bbf8463cb81d4252, type: 3}
+  m_Name: Level3Intro
+  m_EditorClassIdentifier: 
+  graphName: Level3Intro
+  graphPath: Assets/Data/DialogueGraphs/Level3Intro.asset
+  speakers:
+  - {fileID: 11400000, guid: 84d6cc14a313d2d4ebb7d96351fee048, type: 2}
+  - {fileID: 11400000, guid: 5d36c17730615be42a06d7baea1a5be4, type: 2}
+  conversationType: 0
+  nodes:
+  - {fileID: -8470625045324170902}
+  - {fileID: 5703680213187074617}
+  - {fileID: -7574972006918163804}
+  - {fileID: -6171492716649417471}
+  - {fileID: 855126653101382797}
+  endNode: {fileID: -8470625045324170902}
+  selectedNodes: []
+--- !u!114 &855126653101382797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16568c72912fcf344bfa7043e6414133, type: 3}
+  m_Name: Speech
+  m_EditorClassIdentifier: 
+  outgoing: {fileID: 0}
+  nodeRect:
+    serializedVersion: 2
+    x: 1791.8619
+    y: 244.91145
+    width: 300
+    height: 30
+  isOutput: 1
+  connectionMarkedForDelete: 0
+  nodeName: Speech
+  parentGraph: {fileID: 11400000}
+  tooltip: A line spoken by one of the Speakers.
+  properties:
+    _keys:
+    - Speaker
+    - Text
+    _values:
+    - {fileID: -9205607057826010863}
+    - {fileID: -3646278790746810168}
+  guid: 22160080
+  incoming:
+  - {fileID: -6171492716649417471}
+--- !u!114 &1753842792111805003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e8fb5f7ec6a71946a43b87c7255d214, type: 3}
+  m_Name: Speech.property - Speaker
+  m_EditorClassIdentifier: 
+  outgoing: {fileID: 0}
+  nodeRect:
+    serializedVersion: 2
+    x: 722.6657
+    y: 279.48395
+    width: 300
+    height: 20
+  isOutput: 0
+  connectionMarkedForDelete: 0
+  propertyName: Speaker
+  value:
+    type: 5
+    stringValue: 
+    floatValue: 0
+    intValue: 0
+    speakerValue: {fileID: 11400000, guid: 84d6cc14a313d2d4ebb7d96351fee048, type: 2}
+    objectValue: {fileID: 0}
+    gameStringValue: {fileID: 0}
+    boolValue: 0
+    objectValueTypeName: 
+  propertyPosition: {x: 0, y: 0}
+  parent: {fileID: 5703680213187074617}
+--- !u!114 &2194944422651768510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e8fb5f7ec6a71946a43b87c7255d214, type: 3}
+  m_Name: Speech.property - Text
+  m_EditorClassIdentifier: 
+  outgoing: {fileID: 0}
+  nodeRect:
+    serializedVersion: 2
+    x: 1076.2699
+    y: 294.91147
+    width: 300
+    height: 50
+  isOutput: 0
+  connectionMarkedForDelete: 0
+  propertyName: Text
+  value:
+    type: 6
+    stringValue: 
+    floatValue: 0
+    intValue: 0
+    speakerValue: {fileID: 0}
+    objectValue: {fileID: 0}
+    gameStringValue: {fileID: 11400000, guid: d8e89e66db165724b884920b5e865e94, type: 2}
+    boolValue: 0
+    objectValueTypeName: 
+  propertyPosition: {x: 0, y: 0}
+  parent: {fileID: -7574972006918163804}
+--- !u!114 &5703680213187074617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16568c72912fcf344bfa7043e6414133, type: 3}
+  m_Name: Speech
+  m_EditorClassIdentifier: 
+  outgoing: {fileID: -7574972006918163804}
+  nodeRect:
+    serializedVersion: 2
+    x: 722.6657
+    y: 249.48393
+    width: 300
+    height: 30
+  isOutput: 1
+  connectionMarkedForDelete: 0
+  nodeName: Speech
+  parentGraph: {fileID: 11400000}
+  tooltip: A line spoken by one of the Speakers.
+  properties:
+    _keys:
+    - Speaker
+    - Text
+    _values:
+    - {fileID: 1753842792111805003}
+    - {fileID: -5640453229272374600}
+  guid: 88099610
+  incoming:
+  - {fileID: -8470625045324170902}
+--- !u!114 &8768957886783488551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e8fb5f7ec6a71946a43b87c7255d214, type: 3}
+  m_Name: Speech.property - Speaker
+  m_EditorClassIdentifier: 
+  outgoing: {fileID: 0}
+  nodeRect:
+    serializedVersion: 2
+    x: 1432.9225
+    y: 274.9114
+    width: 300
+    height: 20
+  isOutput: 0
+  connectionMarkedForDelete: 0
+  propertyName: Speaker
+  value:
+    type: 5
+    stringValue: 
+    floatValue: 0
+    intValue: 0
+    speakerValue: {fileID: 11400000, guid: 84d6cc14a313d2d4ebb7d96351fee048, type: 2}
+    objectValue: {fileID: 0}
+    gameStringValue: {fileID: 0}
+    boolValue: 0
+    objectValueTypeName: 
+  propertyPosition: {x: 0, y: 0}
+  parent: {fileID: -6171492716649417471}

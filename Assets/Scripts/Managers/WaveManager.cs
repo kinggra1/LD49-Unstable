@@ -63,6 +63,11 @@ public class WaveManager : Singleton<WaveManager> {
         }
     }
 
+    public void RestartLevel() {
+        levelIndex--;
+        TriggerNextLevel();
+    }
+
     private void TriggerNextWave() {
         waveIndex++;
         if (waveIndex >= currentLevel.waves.Length) {

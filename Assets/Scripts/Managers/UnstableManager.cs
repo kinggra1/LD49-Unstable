@@ -33,6 +33,7 @@ public class UnstableManager : Singleton<UnstableManager> {
     // Start is called before the first frame update
     void Start() {
         EnterStabilityLevel(stabilityLevel);
+        uiMeter.fillAmount = normalizedUnstableLevel;
     }
 
     // Update is called once per frame
@@ -115,10 +116,21 @@ public class UnstableManager : Singleton<UnstableManager> {
 
     public void AddInstability(float percentage) {
         normalizedUnstableLevel += percentage;
+
+        if (normalizedUnstableLevel > 1f) {
+            GameManager.Instance.GameOver();
+            return;
+        }
+
         normalizedUnstableLevel = Mathf.Clamp01(normalizedUnstableLevel);
     }
 
     public float UnstableValue() {
         return normalizedUnstableLevel;
+    }
+
+    public void Reset() {
+        normalizedUnstableLevel = 0f;
+        uiMeter.fillAmount = normalizedUnstableLevel;
     }
 }
