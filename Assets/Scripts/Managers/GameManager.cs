@@ -58,6 +58,10 @@ public class GameManager : Singleton<GameManager> {
         foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy")) {
             Destroy(enemy);
         }
+        WizardEnemy boss = FindObjectOfType<WizardEnemy>();
+        if (boss != null) {
+            Destroy(boss.gameObject);
+        }
         defeatUI.SetActive(true);
     }
 

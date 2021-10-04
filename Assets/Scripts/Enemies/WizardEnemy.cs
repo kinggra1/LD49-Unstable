@@ -119,6 +119,8 @@ public class WizardEnemy : MonoBehaviour, EnemyInterface {
         attackCount++;
         GameObject fireball = Instantiate(enemyFireballPrefab);
         Vector3 fireDirection = CharacterController.Instance.transform.position - this.transform.position;
+        float aimRotation = Random.Range(-10f, 10f);
+        fireDirection = Quaternion.Euler(0, 0, aimRotation) * fireDirection;
         fireball.transform.position = this.transform.position + fireDirection.normalized;
 
         EnemyWizardFireball fireballScript = fireball.GetComponent<EnemyWizardFireball>();

@@ -146,6 +146,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d38f5209fe842d4287979fb7e39e683, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyFireballPrefab: {fileID: 7848542909548474579, guid: fa40834d725b6d8438f9dc08c6046c83,
+    type: 3}
 --- !u!61 &6650973319411283536
 BoxCollider2D:
   m_ObjectHideFlags: 0

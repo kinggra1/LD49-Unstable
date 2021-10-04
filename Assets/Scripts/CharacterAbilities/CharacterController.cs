@@ -136,7 +136,7 @@ public class CharacterController : Singleton<CharacterController> {
         projectileScript.SetDirection(projectileDirection);
 
         AudioManager.Instance.PlayFireballCast();
-        UnstableManager.Instance.AddInstability(0.1f);
+        UnstableManager.Instance.AddInstability(0.05f);
     }
 
     private void CreateFirestorm() {

@@ -6,12 +6,13 @@ using UnityEngine;
 public class WaveManager : Singleton<WaveManager> {
 
     private static readonly float SPAWN_RADIUS = 7f;
-    public enum EnemyType { Slime, Bat, Fish }
+    public enum EnemyType { Slime, Bat, Fish, Boss }
 
     public GameObject enemyParentObject;
     public GameObject slimePrefab;
     public GameObject batPrefab;
     public GameObject fishPrefab;
+    public GameObject bossPrefab;
 
     public GameObject magicPoofPrefab;
 
@@ -99,6 +100,11 @@ public class WaveManager : Singleton<WaveManager> {
                         GameObject fish = Instantiate(fishPrefab);
                         fish.transform.position = position;
                         fish.transform.parent = enemyParentObject.transform;
+                        break;
+                    case EnemyType.Boss:
+                        GameObject boss = Instantiate(bossPrefab);
+                        boss.transform.position = new Vector3(0f, 8f, 0f);
+                        boss.transform.parent = enemyParentObject.transform;
                         break;
                 }
             }

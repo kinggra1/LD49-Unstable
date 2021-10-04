@@ -5,7 +5,7 @@ using UnityEngine;
 public class SlimeEnemy : MonoBehaviour, EnemyInterface {
 
     private static readonly float SPEED = 0.7f;
-    private static readonly int MAX_HEALTH = 1;
+    private static readonly int MAX_HEALTH = 2;
     private static readonly float INSTABILITY = 0.2f;
 
     private int currentHealth = MAX_HEALTH;

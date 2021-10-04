@@ -7,6 +7,8 @@ public class FireballProjectile : MonoBehaviour, ProjectileInterface {
     private static readonly float SPEED = 8f;
     private static readonly int DAMAGE = 1;
 
+    public GameObject miniPoofPrefab;
+
     private Vector3 direction;
     public void ImpactEnemy() {
         throw new System.NotImplementedException();
@@ -51,8 +53,12 @@ public class FireballProjectile : MonoBehaviour, ProjectileInterface {
         if (impactedEnemy != null)
         {
             impactedEnemy.TakeDamage(DAMAGE);
+            AudioManager.Instance.PlayFireballHitEnemy();
         }
 
+        GameObject miniPoof = Instantiate(miniPoofPrefab);
+        Vector3 hitPosition = this.transform.position + (collider.transform.position - this.transform.position) / 2f;
+        miniPoof.transform.position = hitPosition;
         Destroy(this.gameObject);
     }
 }

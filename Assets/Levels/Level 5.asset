@@ -15,5 +15,20 @@ MonoBehaviour:
   introConversation: {fileID: 11400000, guid: e769761ca203d3b4691497a0d360649f, type: 2}
   waves:
   - spawnedEnemies:
+    - type: 3
+      count: 1
+  - spawnedEnemies:
     - type: 0
       count: 1
+  - spawnedEnemies:
+    - type: 0
+      count: 3
+  - spawnedEnemies:
+    - type: 1
+      count: 2
+  - spawnedEnemies:
+    - type: 0
+      count: 5
+  - spawnedEnemies:
+    - type: 0
+      count: 5

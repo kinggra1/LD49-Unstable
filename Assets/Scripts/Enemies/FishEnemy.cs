@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FishEnemy : MonoBehaviour, EnemyInterface {
     private static readonly float SPEED = 0.7f;
-    private static readonly int MAX_HEALTH = 5;
+    private static readonly int MAX_HEALTH = 10;
     private static readonly float INSTABILITY = 0.4f;
 
     private int currentHealth = MAX_HEALTH;

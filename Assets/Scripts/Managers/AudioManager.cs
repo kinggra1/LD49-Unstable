@@ -10,12 +10,16 @@ public class AudioManager : Singleton<AudioManager> {
     public AudioClip batDieSound;
     public AudioClip fishDieSound;
     public AudioClip enemyWizardHitSound;
+    public AudioClip poofSoundEffect;
+    public AudioClip dialogueBoop;
 
     private AudioSource playerSfxAudioSource;
+    private AudioSource fireballHitSfxAudioSource;
     private AudioSource enemySfxAudioSource;
 
     private void Awake() {
         playerSfxAudioSource = gameObject.AddComponent<AudioSource>();
+        fireballHitSfxAudioSource = gameObject.AddComponent<AudioSource>();
         enemySfxAudioSource = gameObject.AddComponent<AudioSource>();
     }
 
@@ -56,8 +60,14 @@ public class AudioManager : Singleton<AudioManager> {
     }
 
     public void PlayEnemyWizardHitSound() {
-        enemySfxAudioSource.volume = 0.6f;
+        enemySfxAudioSource.volume = 0.3f;
         enemySfxAudioSource.pitch = (Random.Range(0.9f, 1.1f));
         enemySfxAudioSource.PlayOneShot(enemyWizardHitSound);
+    }
+
+    public void PlayFireballHitEnemy() {
+        fireballHitSfxAudioSource.volume = 0.5f;
+        fireballHitSfxAudioSource.pitch = (Random.Range(0.9f, 1.1f));
+        fireballHitSfxAudioSource.PlayOneShot(poofSoundEffect);
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BatEnemy : MonoBehaviour, EnemyInterface {
     private static readonly float SPEED = 1f;
-    private static readonly int MAX_HEALTH = 1;
+    private static readonly int MAX_HEALTH = 5;
     private static readonly float INSTABILITY = 0.2f;
     private static readonly float MIN_SHOOT_COOLDOWN = 1.5f;
     private static readonly float MAX_SHOOT_COOLDOWN = 2.5f;
