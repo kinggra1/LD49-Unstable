@@ -10,6 +10,8 @@ public class BatProjectile : MonoBehaviour, EnemyProjectileInterface {
 
     public void SetDirection(Vector3 direction) {
         this.direction = direction.normalized;
+        float rotZ = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0f, 0f, rotZ - 180);
     }
 
     // Start is called before the first frame update
