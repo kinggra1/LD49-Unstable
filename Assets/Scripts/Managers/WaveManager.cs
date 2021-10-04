@@ -27,6 +27,8 @@ public class Level : ScriptableObject {
 }
 
 public class WaveManager : Singleton<WaveManager> {
+
+    private static readonly float SPAWN_RADIUS = 7f;
     public enum EnemyType { Slime, Bat, Fish }
 
     public GameObject enemyParentObject;
@@ -104,12 +106,12 @@ public class WaveManager : Singleton<WaveManager> {
                     case EnemyType.Slime:
                         GameObject slime = Instantiate(slimePrefab);
                         slime.transform.position = 
-                            new Vector3(Mathf.Cos(randomAngle), Mathf.Sin(randomAngle), 0f) * 10f;
+                            new Vector3(Mathf.Cos(randomAngle), Mathf.Sin(randomAngle), 0f) * SPAWN_RADIUS;
                         break;
                     case EnemyType.Bat:
                         GameObject bat = Instantiate(batPrefab);
                         bat.transform.position = 
-                            new Vector3(Mathf.Cos(randomAngle), Mathf.Sin(randomAngle), 0f) * 10f;
+                            new Vector3(Mathf.Cos(randomAngle), Mathf.Sin(randomAngle), 0f) * SPAWN_RADIUS;
                         break;
                     case EnemyType.Fish:
                         break;
