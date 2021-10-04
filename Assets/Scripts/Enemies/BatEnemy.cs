@@ -6,10 +6,11 @@ public class BatEnemy : MonoBehaviour, EnemyInterface {
     private static readonly float SPEED = 1f;
     private static readonly int MAX_HEALTH = 1;
     private static readonly float INSTABILITY = 0.2f;
-    private static readonly float SHOOT_TIME = 2f;
+    private static readonly float MIN_SHOOT_COOLDOWN = 1.5f;
+    private static readonly float MAX_SHOOT_COOLDOWN = 2.5f;
 
     private int currentHealth = MAX_HEALTH;
-    private float shootCooldown = 0f;
+    private float shootCooldown;
     private float movementRotation = 0f;
 
     public GameObject projectilePrefab;
@@ -19,6 +20,8 @@ public class BatEnemy : MonoBehaviour, EnemyInterface {
         // Each bat has a random offset path that it follows 
         // so that it isn't moving *directly* towards the player
         movementRotation = Random.Range(50f, 80f) * Mathf.Sign(Random.Range(-1f, 1f));
+
+        shootCooldown = Random.Range(MIN_SHOOT_COOLDOWN, MAX_SHOOT_COOLDOWN);
     }
 
     // Update is called once per frame
@@ -36,7 +39,7 @@ public class BatEnemy : MonoBehaviour, EnemyInterface {
 
         shootCooldown -= Time.deltaTime;
         if (shootCooldown <= 0) {
-            shootCooldown = SHOOT_TIME;
+            shootCooldown = Random.Range(MIN_SHOOT_COOLDOWN, MAX_SHOOT_COOLDOWN);
             Shoot();
         }
     }
