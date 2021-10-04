@@ -36,6 +36,7 @@ public class FishEnemy : MonoBehaviour, EnemyInterface {
     public void Die() {
         Destroy(this.gameObject);
         WaveManager.Instance.OnEnemyDeath();
+        AudioManager.Instance.PlayFishDeathSound();
     }
 
     private void OnTriggerStay2D(Collider2D collider) {

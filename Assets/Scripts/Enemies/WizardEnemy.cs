@@ -28,6 +28,7 @@ public class WizardEnemy : MonoBehaviour, EnemyInterface {
 
     public void TakeDamage(int damageAmount) {
         currentHealth = currentHealth - damageAmount;
+        AudioManager.Instance.PlayEnemyWizardHitSound();
         if (currentHealth <= 0) {
             Die();
         }
