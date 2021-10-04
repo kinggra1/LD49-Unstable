@@ -128,6 +128,7 @@ public class CharacterController : Singleton<CharacterController> {
         ProjectileInterface projectileScript = projectile.GetComponent<ProjectileInterface>();
         projectileScript.SetDirection(projectileDirection);
 
+        AudioManager.Instance.PlayFireballCast();
         UnstableManager.Instance.AddInstability(0.1f);
     }
 
