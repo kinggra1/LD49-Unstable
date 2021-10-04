@@ -2328,6 +2328,7 @@ GameObject:
   - component: {fileID: 1719967874}
   - component: {fileID: 1719967877}
   - component: {fileID: 1719967872}
+  - component: {fileID: 1719967878}
   - component: {fileID: 1719967873}
   m_Layer: 0
   m_Name: GameManager
@@ -2520,6 +2521,20 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a68143e68579b9e4d90e7ce64a2b9b39, type: 2}
   - {fileID: 11400000, guid: 5e6bdd92e6533094b913949d53fbd13e, type: 2}
   - {fileID: 11400000, guid: 63c7e9d42bb1c7b4e982e060a1dc4803, type: 2}
+--- !u!114 &1719967878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1719967871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e447ca80859fec46908893d6461b961, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireballCastSound: {fileID: 8300000, guid: 7950bca88925ee54f832a977b8943ba3, type: 3}
+  slimeDieSound: {fileID: 8300000, guid: e8e00fd2b9b87bc40805b360ba340f1a, type: 3}
 --- !u!1 &1923129433
 GameObject:
   m_ObjectHideFlags: 0
