@@ -13,6 +13,8 @@ public class WaveManager : Singleton<WaveManager> {
     public GameObject batPrefab;
     public GameObject fishPrefab;
 
+    public GameObject magicPoofPrefab;
+
     public List<Level> levels;
 
     private int levelIndex = -1;
@@ -65,7 +67,7 @@ public class WaveManager : Singleton<WaveManager> {
         levelIndex++;
         waveIndex = -1;
         if (levelIndex >= levels.Count) {
-            // GG? Start boss fight? No more waves.
+            GameManager.Instance.WinGame();
             return;
         }
 
@@ -80,21 +82,23 @@ public class WaveManager : Singleton<WaveManager> {
         foreach (Level.EnemyGroup enemies in wave.spawnedEnemies) {
             for (int i = 0; i < enemies.count; i++) {
                 float randomAngle = Random.value * Mathf.PI * 2;
+                Vector3 position = new Vector3(Mathf.Cos(randomAngle), Mathf.Sin(randomAngle), 0f) * SPAWN_RADIUS;
+
                 switch (enemies.type) {
                     case EnemyType.Slime:
                         GameObject slime = Instantiate(slimePrefab);
-                        slime.transform.position = 
-                            new Vector3(Mathf.Cos(randomAngle), Mathf.Sin(randomAngle), 0f) * SPAWN_RADIUS;
+                        slime.transform.parent = enemyParentObject.transform;
+                        slime.transform.position = position;
                         break;
                     case EnemyType.Bat:
                         GameObject bat = Instantiate(batPrefab);
-                        bat.transform.position = 
-                            new Vector3(Mathf.Cos(randomAngle), Mathf.Sin(randomAngle), 0f) * SPAWN_RADIUS;
+                        bat.transform.position = position;
+                        bat.transform.parent = enemyParentObject.transform;
                         break;
                     case EnemyType.Fish:
                         GameObject fish = Instantiate(fishPrefab);
-                        fish.transform.position =
-                            new Vector3(Mathf.Cos(randomAngle), Mathf.Sin(randomAngle), 0f) * SPAWN_RADIUS;
+                        fish.transform.position = position;
+                        fish.transform.parent = enemyParentObject.transform;
                         break;
                 }
             }

@@ -38,19 +38,19 @@ public class AudioManager : Singleton<AudioManager> {
     }
 
     public void PlaySlimeDeathSound() {
-        enemySfxAudioSource.volume = 0.1f; // Duck audio a bit for loud clip (hacky).
+        enemySfxAudioSource.volume = 0.1f;
         enemySfxAudioSource.pitch = (Random.Range(0.9f, 1.1f));
         enemySfxAudioSource.PlayOneShot(slimeDieSound);
     }
 
     public void PlayBatDeathSound() {
-        enemySfxAudioSource.volume = .4f;
+        enemySfxAudioSource.volume = .3f;
         enemySfxAudioSource.pitch = (Random.Range(0.9f, 1.1f));
         enemySfxAudioSource.PlayOneShot(batDieSound);
     }
 
     public void PlayFishDeathSound() {
-        enemySfxAudioSource.volume = 0.6f;
+        enemySfxAudioSource.volume = 0.2f;
         enemySfxAudioSource.pitch = (Random.Range(0.9f, 1.1f));
         enemySfxAudioSource.PlayOneShot(fishDieSound);
     }

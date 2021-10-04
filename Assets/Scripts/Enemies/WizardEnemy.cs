@@ -4,17 +4,30 @@ using UnityEngine;
 
 public class WizardEnemy : MonoBehaviour, EnemyInterface {
 
-    private enum AttackState { Waiting, Moving, Cooldown }
+    private enum AttackState { TeleportCooldown, Attack, AttackCooldown }
+    private AttackState attackState = AttackState.AttackCooldown;
 
-    private static readonly float SPEED = .8f;
+    private static readonly float SPEED = 1.5f;
     private static readonly int MAX_HEALTH = 20;
     private static readonly float INSTABILITY = 0.4f;
+    private static readonly float SPAWN_RADIUS = 4f;
+
+    public GameObject enemyFireballPrefab;
 
     private int currentHealth = MAX_HEALTH;
+    private float stateTimer = 0f;
+    private float teleportCooldownTime;
+    private float attackCooldownTime;
+    private float attackTimer;
+    private int attackCount;
+    private int totalNumberOfAttacks;
+    private float attackSpeed;
+
+    private float movementRotation;
 
     // Start is called before the first frame update
     void Start() {
-
+        movementRotation = Random.Range(50f, 80f) * Mathf.Sign(Random.Range(-1f, 1f));
     }
 
     // Update is called once per frame
@@ -23,10 +36,95 @@ public class WizardEnemy : MonoBehaviour, EnemyInterface {
             return;
         }
 
+        stateTimer += Time.deltaTime;
+
+        switch (attackState) {
+            case AttackState.TeleportCooldown:
+                if (stateTimer > teleportCooldownTime) {
+                    ChangeState(AttackState.Attack);
+                    break;
+                }
+                break;
+            case AttackState.Attack:
+                attackTimer += Time.deltaTime;
+                if (attackTimer > attackSpeed) {
+                    ShootFireball();
+                    attackTimer = 0f;
+                }
+                if (attackCount > totalNumberOfAttacks) {
+                    ChangeState(AttackState.AttackCooldown);
+                    break;
+                }
+                break;
+            case AttackState.AttackCooldown:
+                if (stateTimer > attackCooldownTime) {
+                    ChangeState(AttackState.TeleportCooldown);
+                    break;
+                }
+                break;
+        }
+
         // move closer to player character
         float step = SPEED * Time.deltaTime; // calculate distance to move
         var playerPosition = CharacterController.Instance.transform.position;
-        this.transform.position = Vector3.MoveTowards(this.transform.position, playerPosition, step);
+        Vector3 directionToplayer = playerPosition - this.transform.position;
+        Vector3 targetDirection = Quaternion.Euler(0f, 0f, movementRotation) * directionToplayer;
+        this.transform.position = Vector3.MoveTowards(this.transform.position, this.transform.position + targetDirection, step);
+
+    }
+
+    private void ChangeState(AttackState newState) {
+        ExitState(attackState);
+        EnterState(newState);
+        attackState = newState;
+        stateTimer = 0f;
+    }
+
+    private void ExitState(AttackState state) {
+        switch (state) {
+            case AttackState.TeleportCooldown:
+                break;
+            case AttackState.Attack:
+                break;
+            case AttackState.AttackCooldown:
+                Teleport();
+                break;
+        }
+    }
+
+    private void EnterState(AttackState state) {
+        switch (state) {
+            case AttackState.TeleportCooldown:
+                teleportCooldownTime = Random.Range(0.5f, 2f);
+                break;
+            case AttackState.Attack:
+                attackCount = 0;
+                attackSpeed = Random.Range(0.5f, 2f);
+                totalNumberOfAttacks = Random.Range(3, 8);
+                break;
+            case AttackState.AttackCooldown:
+                attackCooldownTime = Random.Range(0.5f, 3f);
+                break;
+        }
+    }
+
+    private void ShootFireball() {
+        attackCount++;
+        GameObject fireball = Instantiate(enemyFireballPrefab);
+        Vector3 fireDirection = CharacterController.Instance.transform.position - this.transform.position;
+        fireball.transform.position = this.transform.position + fireDirection.normalized;
+
+        EnemyWizardFireball fireballScript = fireball.GetComponent<EnemyWizardFireball>();
+        fireballScript.SetDirection(fireDirection);
+    }
+
+    private void Teleport() {
+        float randomAngle = Random.value * Mathf.PI * 2;
+        Vector3 newPosition = CharacterController.Instance.transform.position 
+            + new Vector3(Mathf.Cos(randomAngle), Mathf.Sin(randomAngle), 0f) * SPAWN_RADIUS;
+
+        this.transform.position = newPosition;
+        movementRotation = Random.Range(50f, 80f) * Mathf.Sign(Random.Range(-1f, 1f));
     }
 
     public void TakeDamage(int damageAmount) {

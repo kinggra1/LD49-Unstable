@@ -12,6 +12,9 @@ public class BatEnemy : MonoBehaviour, EnemyInterface {
     private int currentHealth = MAX_HEALTH;
     private float shootCooldown;
     private float movementRotation = 0f;
+    private bool hasPoofedIn = false;
+    private float poofDelay;
+    private float poofTimer = 0f;
 
     public GameObject projectilePrefab;
 
@@ -22,6 +25,10 @@ public class BatEnemy : MonoBehaviour, EnemyInterface {
         movementRotation = Random.Range(50f, 80f) * Mathf.Sign(Random.Range(-1f, 1f));
 
         shootCooldown = Random.Range(MIN_SHOOT_COOLDOWN, MAX_SHOOT_COOLDOWN);
+
+        // Start TINY so that we appear invisible until the poof has a chance to play.
+        this.transform.localScale = Vector3.zero;
+        poofDelay = Random.Range(0.5f, 8f);
     }
 
     // Update is called once per frame
@@ -29,6 +36,21 @@ public class BatEnemy : MonoBehaviour, EnemyInterface {
         if (GameManager.Instance.IsPaused()) {
             return;
         }
+
+        poofTimer += Time.deltaTime;
+
+        if (!hasPoofedIn) {
+            if (poofTimer > poofDelay) {
+                GameObject poof = Instantiate(WaveManager.Instance.magicPoofPrefab);
+                poof.transform.position = transform.position;
+                hasPoofedIn = true;
+            }
+            return;
+        }
+
+
+        // Hacky quick scale up
+        this.transform.localScale = Vector3.Lerp(this.transform.localScale, Vector3.one, 0.1f);
 
         // move closer to player character
         float step = SPEED * Time.deltaTime; // calculate distance to move
