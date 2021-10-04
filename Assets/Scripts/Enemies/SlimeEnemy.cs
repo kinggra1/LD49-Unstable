@@ -37,6 +37,7 @@ public class SlimeEnemy : MonoBehaviour, EnemyInterface {
     public void Die() {
         Destroy(this.gameObject);
         WaveManager.Instance.OnEnemyDeath();
+        AudioManager.Instance.PlaySlimeDeathSound();
     }
 
     private void OnTriggerStay2D(Collider2D collider) {

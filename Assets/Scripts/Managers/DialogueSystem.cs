@@ -221,7 +221,7 @@ namespace ETools.Dialogue {
 
 			string speechText = speechNode.text.EnglishString;
 			MarkupString ms = new MarkupString(speechText);
-			ms.InsertNewLines(dialogueText, dialogueText.GetComponent<RectTransform>().rect.width);
+			ms.InsertNewLines(dialogueText, dialogueText.GetComponent<RectTransform>().rect.width - 110);
 
 			while (i <= ms.plainString.Length) {
 				if (!_conversation)

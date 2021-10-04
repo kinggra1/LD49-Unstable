@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec8dc78cb292cbc43b0877830de928bc, type: 3}
   m_Name: PlayerWizard
   m_EditorClassIdentifier: 
-  characterName: '[Your Name Here]'
-  characterPortrait: {fileID: 2800000, guid: 5db08d43220da3940a307a5fb95f9da2, type: 3}
+  characterName: Amblerose
+  characterPortrait: {fileID: 2800000, guid: 556bd623cf99d3e4c853138e704a2ba8, type: 3}
   blips: []
