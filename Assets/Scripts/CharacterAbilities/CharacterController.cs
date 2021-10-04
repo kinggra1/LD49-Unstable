@@ -136,6 +136,7 @@ public class CharacterController : Singleton<CharacterController> {
         GameObject firestorm = Instantiate(firestormPrefab);
         firestorm.transform.position = this.transform.position;
 
+        AudioManager.Instance.PlayFirestormCast();
         // UnstableManager.Instance.AddInstability(0.33f);
     }
 
