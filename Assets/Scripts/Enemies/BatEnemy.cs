@@ -9,6 +9,11 @@ public class BatEnemy : MonoBehaviour, EnemyInterface {
     private static readonly float MIN_SHOOT_COOLDOWN = 1.5f;
     private static readonly float MAX_SHOOT_COOLDOWN = 2.5f;
 
+    private static readonly float MIN_X_POS = -13.3f;
+    private static readonly float MAX_X_POS = 13.3f;
+    private static readonly float MIN_Y_POS = -7.3f;
+    private static readonly float MAX_Y_POS = 6.6f;
+
     private int currentHealth = MAX_HEALTH;
     private float shootCooldown;
     private float movementRotation = 0f;
@@ -52,12 +57,13 @@ public class BatEnemy : MonoBehaviour, EnemyInterface {
         // Hacky quick scale up
         this.transform.localScale = Vector3.Lerp(this.transform.localScale, Vector3.one, 0.1f);
 
-        // move closer to player character
+        // move closer to player character, but keep within screen constraints
         float step = SPEED * Time.deltaTime; // calculate distance to move
         var playerPosition = CharacterController.Instance.transform.position;
         Vector3 directionToplayer = playerPosition - this.transform.position;
         Vector3 targetDirection = Quaternion.Euler(0f, 0f, movementRotation) * directionToplayer;
-        this.transform.position = Vector3.MoveTowards(this.transform.position, this.transform.position + targetDirection, step);
+        Vector3 newPosition = Vector3.MoveTowards(this.transform.position, this.transform.position + targetDirection, step);
+        this.transform.position = new Vector3(Mathf.Clamp(newPosition.x, MIN_X_POS, MAX_X_POS), Mathf.Clamp(newPosition.y, MIN_Y_POS, MAX_Y_POS), 0.0f);
 
         shootCooldown -= Time.deltaTime;
         if (shootCooldown <= 0) {

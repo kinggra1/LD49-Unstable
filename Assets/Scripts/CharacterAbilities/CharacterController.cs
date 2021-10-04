@@ -9,6 +9,11 @@ public class CharacterController : Singleton<CharacterController> {
     private static readonly float MAX_OVERALL_MOVE_SPEED = 3f;
     private static readonly float MAX_IFRAMES = 1f;
 
+    private static readonly float MIN_X_POS = -13.3f;
+    private static readonly float MAX_X_POS = 13.3f;
+    private static readonly float MIN_Y_POS = -7.3f;
+    private static readonly float MAX_Y_POS = 6.6f;
+
     private static readonly float MAX_AIM_VARIANCE = 35f; // Degrees to either side of aimed point.
 
     [Range(0, 1)]
@@ -97,9 +102,11 @@ public class CharacterController : Singleton<CharacterController> {
             positionChange = positionChange.normalized * MAX_OVERALL_MOVE_SPEED;
         }
 
+        // determine new position, then limit it to be in the bounds of the screen
         Vector3 newPosition = transform.position + positionChange * Time.fixedDeltaTime;
+        Vector3 clampedNewPosition = new Vector3(Mathf.Clamp(newPosition.x, MIN_X_POS, MAX_X_POS), Mathf.Clamp(newPosition.y, MIN_Y_POS, MAX_Y_POS), 0.0f);
 
-        rb.MovePosition(newPosition);
+        rb.MovePosition(clampedNewPosition);
     }
 
     private void SetFacingBasedOnMouse() {

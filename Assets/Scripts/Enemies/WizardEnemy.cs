@@ -10,7 +10,12 @@ public class WizardEnemy : MonoBehaviour, EnemyInterface {
     private static readonly float SPEED = 1.5f;
     private static readonly int MAX_HEALTH = 20;
     private static readonly float INSTABILITY = 0.4f;
-    private static readonly float SPAWN_RADIUS = 4.5f;
+    private static readonly float SPAWN_RADIUS = 4f;
+
+    private static readonly float MIN_X_POS = -13.3f;
+    private static readonly float MAX_X_POS = 13.3f;
+    private static readonly float MIN_Y_POS = -7.3f;
+    private static readonly float MAX_Y_POS = 6.6f;
 
     public GameObject enemyFireballPrefab;
 
@@ -124,6 +129,7 @@ public class WizardEnemy : MonoBehaviour, EnemyInterface {
         float randomAngle = Random.value * Mathf.PI * 2;
         Vector3 newPosition = CharacterController.Instance.transform.position 
             + new Vector3(Mathf.Cos(randomAngle), Mathf.Sin(randomAngle), 0f) * SPAWN_RADIUS;
+        Vector3 clampedNewPosition = new Vector3(Mathf.Clamp(newPosition.x, MIN_X_POS, MAX_X_POS), Mathf.Clamp(newPosition.y, MIN_Y_POS, MAX_Y_POS), 0.0f);
 
         GameObject disappearPoof = Instantiate(WaveManager.Instance.magicPoofPrefab);
         disappearPoof.transform.position = this.transform.position;
