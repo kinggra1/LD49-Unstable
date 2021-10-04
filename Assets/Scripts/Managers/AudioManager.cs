@@ -25,13 +25,13 @@ public class AudioManager : Singleton<AudioManager> {
     }
 
     public void PlayPlayerHitSound() {
-        playerSfxAudioSource.volume = .6f;
+        playerSfxAudioSource.volume = .7f;
         playerSfxAudioSource.pitch = (Random.Range(0.9f, 1.1f));
         playerSfxAudioSource.PlayOneShot(playerHitSound);
     }
 
     public void PlaySlimeDeathSound() {
-        enemySfxAudioSource.volume = 0.4f; // Duck audio a bit for loud clip (hacky).
+        enemySfxAudioSource.volume = 0.5f; // Duck audio a bit for loud clip (hacky).
         enemySfxAudioSource.pitch = (Random.Range(0.9f, 1.1f));
         enemySfxAudioSource.PlayOneShot(slimeDieSound);
     }

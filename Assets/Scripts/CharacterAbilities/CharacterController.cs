@@ -141,6 +141,7 @@ public class CharacterController : Singleton<CharacterController> {
 
     public void TakeDamage(float instability) {
         if (currentIFrames <= 0) {
+            AudioManager.Instance.PlayPlayerHitSound();
             currentIFrames = 1;
             UnstableManager.Instance.AddInstability(instability);
         }

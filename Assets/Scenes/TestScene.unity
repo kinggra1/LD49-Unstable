@@ -2400,7 +2400,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireballCastSound: {fileID: 8300000, guid: 7950bca88925ee54f832a977b8943ba3, type: 3}
+  playerHitSound: {fileID: 8300000, guid: 2f29ec76a20c4e54c9394453718b970f, type: 3}
   slimeDieSound: {fileID: 8300000, guid: e8e00fd2b9b87bc40805b360ba340f1a, type: 3}
+  batDieSound: {fileID: 8300000, guid: 725deb170f422fd468e029171ffefa49, type: 3}
+  fishDieSound: {fileID: 8300000, guid: 36c555879ced58243be3e875231a7d62, type: 3}
+  enemyWizardHitSound: {fileID: 8300000, guid: 8f8e39adf98125a43886f29faf2a5290, type: 3}
 --- !u!1 &1923129433
 GameObject:
   m_ObjectHideFlags: 0
